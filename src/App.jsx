@@ -3,6 +3,7 @@ import "./styles/App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Quiz from "./pages/quiz";
+import Recap from "./pages/recap";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </a>
         </header>
         <Switch>
+          <Route path="/recap">
+            <Recap />
+          </Route>
           <Route path="/quiz">
             <Quiz />
           </Route>
