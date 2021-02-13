@@ -1,3 +1,4 @@
+import React from "react";
 import logo from "./assets/logo.svg";
 import "./styles/App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
