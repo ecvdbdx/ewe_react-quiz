@@ -44,7 +44,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.20.0",
     "eslint-plugin-react": "^7.22.0",
-    "husky": "^5.0.9",
+    "husky": ">=4",
     "lint-staged": ">=10",
     "stylelint": "^13.10.0",
     "stylelint-config-rational-order": "^0.1.2",
@@ -52,12 +52,13 @@
     "stylelint-order": "^4.1.0"
   },
   "husky": {
-    "hooks": { 
+    "hooks": {
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.js": "eslint",
-    "*.css": "stylelint"
+    "*.css": "stylelint --fix",
+    "*.{js,vue,jsx}": "eslint --cache --fix"
   }
 }
