@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Recap() {
-  return <h1>Quiz</h1>;
+  return <h1>Quizz</h1>;
 }
