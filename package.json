@@ -18,7 +18,7 @@
     "start": "react-scripts start",
     "dev": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "eslint --ext .js,.jsx --ignore-path .gitignore .",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
