@@ -1,6 +1,16 @@
 import React from "react";
 import "./Home.scss";
 
+import {Header} from "./components";
+
 export default function Home() {
-  return <h1>{"The best quiz you'll find"}</h1>;
+  return (
+    <div className="homeRoot">
+      <Header/>
+      <div className="homeContent">
+      </div>
+      <div className="homeFooter">
+      </div>
+    </div>
+  );
 }
