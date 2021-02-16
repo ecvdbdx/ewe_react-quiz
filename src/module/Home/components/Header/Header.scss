@@ -1,0 +1,14 @@
+@import "styles/variables";
+
+.headerRoot {
+  max-width: 100vw;
+  padding: 24px;
+
+  h1 {
+    color: $secondary-color;
+  }
+
+  h2 {
+    color: white;
+  }
+}
