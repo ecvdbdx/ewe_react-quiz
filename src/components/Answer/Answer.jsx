@@ -1,9 +1,9 @@
 import React from "react";
 import "./Answer.scss";
 
-export default function Answer({ answer, label, answerQuestion }) {
+export default function Answer({ answer, label, selectAnswer }) {
   return (
-    <div className="answerContainer" onClick={() => answerQuestion(answer)}>
+    <div className="answerContainer" onClick={() => selectAnswer(answer)}>
       <div className="desc">
         <p>{label}</p>
         <p>{answer}</p>

@@ -5,10 +5,19 @@ import "./Question.scss";
 export default function Question({
   questionData: { question, correct_answer, incorrect_answers },
 }) {
+  const getAnswer = (answer) => {
+    console.log("slt");
+    console.log(answer);
+  };
+
   return (
     <div className="questionContainer">
       <h1>{question}</h1>
-      <AnswerList correct={correct_answer} incorrect={incorrect_answers} />
+      <AnswerList
+        correct={correct_answer}
+        incorrect={incorrect_answers}
+        getAnswer={getAnswer}
+      />
     </div>
   );
 }
