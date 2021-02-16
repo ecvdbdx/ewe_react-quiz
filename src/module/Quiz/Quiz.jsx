@@ -3,8 +3,9 @@ import { Question } from "./components";
 import { getData } from "./DATA";
 
 export default function Quiz() {
-  const data = getData();
   const [questionIndex, setQuestionIndex] = useState(0);
+
+  const data = getData();
   const currentQuestion = data[questionIndex]; // test data
 
   const answerQuestion = (correct, clientResponse) => {
