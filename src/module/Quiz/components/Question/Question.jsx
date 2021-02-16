@@ -4,10 +4,10 @@ import "./Question.scss";
 
 export default function Question({
   questionData: { question, correct_answer, incorrect_answers },
+  answerQuestion,
 }) {
   const getAnswer = (answer) => {
-    console.log("slt");
-    console.log(answer);
+    answerQuestion(correct_answer, answer);
   };
 
   return (
