@@ -1,0 +1,14 @@
+@import "styles/variables";
+
+.categoriesRoot {
+  max-width: 100vw;
+  padding: 24px;
+
+  .gridCategory {
+    display: grid;
+    grid-gap: 16px;
+    grid-column: 1 / 2;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 16px;
+  }
+}
