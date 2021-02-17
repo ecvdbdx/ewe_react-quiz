@@ -10,11 +10,16 @@ import { getData } from "./DATA";
 
 const data = getData();
 
-const CategoriesTemplate = ({ setQuestionsAsync }) => {
+const CategoriesTemplate = ({ setQuestionsAsync, difficultySelected }) => {
   const history = useHistory();
+  console.log(difficultySelected);
 
   const startQuizz = async (id) => {
-    setQuestionsAsync(id);
+    const payload = {
+      id,
+      difficultySelected,
+    };
+    setQuestionsAsync(payload);
     history.push("/quiz");
   };
   const categoryItems = data.map((value) => (

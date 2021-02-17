@@ -22,9 +22,9 @@ const questions = {
   effects: (dispatch) => ({
     // handle state changes with impure functions.
 
-    setQuestionsAsync(id, rootState) {
+    setQuestionsAsync({ id, difficultySelected }, rootState) {
       fetch(
-        `https://opentdb.com/api.php?amount=10&category=${id}&difficulty=easy`
+        `https://opentdb.com/api.php?amount=10&category=${id}&difficulty=${difficultySelected}`
       )
         .then((res) => res.json())
         .then((res) => {
