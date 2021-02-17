@@ -1,41 +1,52 @@
 import React from "react";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import "./Categories.scss";
 
 import Category from "../Category";
 
-import {getData} from "./DATA";
+import { getData } from "./DATA";
 
-import { useHistory } from "react-router-dom";
+const data = getData();
 
-export default function Categories({difficultySelected}) {
-  let history = useHistory();
-  const data = getData();
-  const selectCategory = (selectedCategory) => {
-    startQuizWithCategory(selectedCategory);
+const CategoriesTemplate = ({ setQuestionsAsync, difficultySelected }) => {
+  const history = useHistory();
+  console.log(difficultySelected);
+
+  const startQuizz = async (id) => {
+    const payload = {
+      id,
+      difficultySelected,
+    };
+    setQuestionsAsync(payload);
+    history.push("/quiz");
   };
+  const categoryItems = data.map((value) => (
+    <Category
+      key={value.id}
+      id={value.id}
+      name={value.name}
+      selectCategory={startQuizz}
+    />
+  ));
 
-  const categoryItems = data.map((value) =>
-  <Category key={value.id} id={value.id} name={value.name} selectCategory={selectCategory}/>);
-
-
-  async function startQuizWithCategory(id){
-    fetch(`https://opentdb.com/api.php?amount=10&category=${id}&difficulty=${difficultySelected}`)
-    .then(res => res.json())
-    .then(json => {
-      console.log(json);
-      history.push("/quiz");
-    });
-  }
-
-  return(
+  return (
     <div className="categoriesRoot">
       <div className="inner">
-        <Category name="General Knowledge" id={9} selectCategory={selectCategory}/>
-        <div className="gridCategory">
-          {categoryItems}
-        </div>
+        <Category name="General Knowledge" id={9} selectCategory={startQuizz} />
+        <div className="gridCategory">{categoryItems}</div>
       </div>
-   </div>
+    </div>
   );
-}
+};
+
+const mapState = (state) => ({
+  questionsList: state.questions.questionsList,
+});
+
+const mapDispatch = (dispatch) => ({
+  setQuestionsAsync: dispatch.questions.setQuestionsAsync,
+});
+
+export default connect(mapState, mapDispatch)(CategoriesTemplate);
