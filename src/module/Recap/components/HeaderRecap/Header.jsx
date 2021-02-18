@@ -9,7 +9,6 @@ const HeaderRecapTemplate = ({ answersList }) => {
   let questionsCounter = 0;
 
   answersList.map((question) => {
-    console.log(question);
     questionsCounter++;
     if (question.isCorrect) {
       correctAnswerCounter++;
