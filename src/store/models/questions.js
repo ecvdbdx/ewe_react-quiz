@@ -26,16 +26,15 @@ const questions = {
       dispatch.questions.addAnswer(answer);
     },
 
-    async setQuestionsAsync({ id, difficultySelected }, rootState) {
-      await fetch(
+    setQuestionsAsync({ id, difficultySelected }) {
+      return fetch(
         `https://opentdb.com/api.php?amount=10&category=${id}&difficulty=${difficultySelected}`
       )
         .then((res) => res.json())
         .then((res) => {
+          if (res.results.length === 0)
+            throw new Error("Empty results, please try again.");
           dispatch.questions.setQuestions(res.results);
-        })
-        .then(() => {
-          console.log(rootState);
         });
     },
   }),

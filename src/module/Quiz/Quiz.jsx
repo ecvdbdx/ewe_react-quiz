@@ -9,9 +9,9 @@ const QuizTemplate = ({ questionsList, addNewAnswer }) => {
 
   const currentQuestion = questionsList[questionIndex];
 
-  const answerQuestion = (correct, clientResponse) => {
+  const answerQuestion = (correct, clientResponse, question) => {
     const isCorrect = correct === clientResponse;
-    addNewAnswer({ correct, clientResponse, isCorrect });
+    addNewAnswer({ question, correct, clientResponse, isCorrect });
 
     if (questionIndex + 1 === questionsList.length) {
       history.push("/recap");
