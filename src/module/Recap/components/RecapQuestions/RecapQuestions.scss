@@ -1,0 +1,29 @@
+@import "styles/variables";
+
+.RecapQuestionsTemplateRoot {
+  padding: 24px;
+
+  .questionItem {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding-bottom: 24px;
+
+    h3 {
+      padding-bottom: 8px;
+
+      color: $secondary-color !important;
+      text-align: left;
+      text-decoration: underline;
+    }
+
+    .question {
+      padding-bottom: 16px;
+
+      font-weight: 800;
+      text-align: left;
+    }
+  }
+}
