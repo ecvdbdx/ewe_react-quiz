@@ -1,16 +1,23 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Question } from "./components";
-import { getData } from "./DATA";
+import { useHistory } from "react-router-dom";
 
-export default function Quiz() {
+const QuizTemplate = ({ questionsList, addNewAnswer }) => {
+  const history = useHistory();
   const [questionIndex, setQuestionIndex] = useState(0);
 
-  const data = getData();
-  const currentQuestion = data[questionIndex]; // test data
+  const currentQuestion = questionsList[questionIndex];
 
   const answerQuestion = (correct, clientResponse) => {
-    console.log(correct, clientResponse);
-    setQuestionIndex((index) => index + 1);
+    const isCorrect = correct === clientResponse;
+    addNewAnswer({ correct, clientResponse, isCorrect });
+
+    if (questionIndex + 1 === questionsList.length) {
+      history.push("/recap");
+    } else {
+      setQuestionIndex((index) => index + 1);
+    }
   };
 
   return (
@@ -22,4 +29,14 @@ export default function Quiz() {
       />
     </div>
   );
-}
+};
+
+const mapState = (state) => ({
+  questionsList: state.questions.questionsList,
+});
+
+const mapDispatch = (dispatch) => ({
+  addNewAnswer: dispatch.questions.addNewAnswer,
+});
+
+export default connect(mapState, mapDispatch)(QuizTemplate);
