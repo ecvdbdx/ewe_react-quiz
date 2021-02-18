@@ -12,14 +12,13 @@ const data = getData();
 
 const CategoriesTemplate = ({ setQuestionsAsync, difficultySelected }) => {
   const history = useHistory();
-  console.log(difficultySelected);
 
   const startQuizz = async (id) => {
     const payload = {
       id,
       difficultySelected,
     };
-    setQuestionsAsync(payload);
+    await setQuestionsAsync(payload);
     history.push("/quiz");
   };
   const categoryItems = data.map((value) => (
