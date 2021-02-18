@@ -2,20 +2,9 @@ import React from "react";
 
 import "./PopupFrame.scss";
 
-export default function PopupFrame({
-  title,
-  message,
-  closePopup,
-  isPopupOpen,
-}) {
-  let popupState;
-  if (isPopupOpen) {
-    popupState = "popupRoot";
-  } else {
-    popupState = "popupRoot hide";
-  }
+export default function PopupFrame({ title, message, closePopup }) {
   return (
-    <div className={popupState}>
+    <div className="popupRoot">
       <div className="close" onClick={() => closePopup()}>
         X
       </div>

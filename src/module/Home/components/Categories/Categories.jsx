@@ -27,7 +27,7 @@ const CategoriesTemplate = ({
         history.push("/quiz");
       })
       .catch((e) => {
-        openNotification({ title: "Erreur", message: e });
+        openNotification({ title: "Error", message: e.message });
       });
   };
   const categoryItems = data.map((value) => (

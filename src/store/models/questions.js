@@ -33,7 +33,7 @@ const questions = {
         .then((res) => res.json())
         .then((res) => {
           if (res.results.length === 0)
-            throw new Error("Empty results, please try again.");
+            throw new Error("Empty results, please try another category.");
           dispatch.questions.setQuestions(res.results);
         });
     },

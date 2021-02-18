@@ -1,7 +1,10 @@
 .popupRoot {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+
+  width: 100%;
+  max-width: 400px;
 
   padding: 32px 48px;
   border-radius: 5px;
@@ -9,6 +12,7 @@
   color: white;
 
   background-color: violet;
+  transform: translateX(-50%);
 
   .close {
     position: absolute;
