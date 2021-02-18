@@ -10,16 +10,25 @@ import { getData } from "./DATA";
 
 const data = getData();
 
-const CategoriesTemplate = ({ setQuestionsAsync, difficultySelected }) => {
+const CategoriesTemplate = ({
+  setQuestionsAsync,
+  difficultySelected,
+  openNotification,
+}) => {
   const history = useHistory();
 
-  const startQuizz = async (id) => {
+  const startQuizz = (id) => {
     const payload = {
       id,
       difficultySelected,
     };
-    await setQuestionsAsync(payload);
-    history.push("/quiz");
+    setQuestionsAsync(payload)
+      .then(() => {
+        history.push("/quiz");
+      })
+      .catch((e) => {
+        openNotification({ title: "Error", message: e.message });
+      });
   };
   const categoryItems = data.map((value) => (
     <Category
@@ -46,6 +55,7 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   setQuestionsAsync: dispatch.questions.setQuestionsAsync,
+  openNotification: dispatch.notification.openNotification,
 });
 
 export default connect(mapState, mapDispatch)(CategoriesTemplate);
