@@ -7,7 +7,7 @@ export default function Question({
   answerQuestion,
 }) {
   const getAnswer = (answer) => {
-    answerQuestion(correct_answer, answer);
+    answerQuestion(correct_answer, answer, question);
   };
 
   return (

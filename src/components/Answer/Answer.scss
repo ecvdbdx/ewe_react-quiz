@@ -1,4 +1,5 @@
 .answerContainer {
+  margin-bottom: 24px;
   padding: 16px;
   border: solid 2px black;
   border-radius: 8px;
@@ -6,4 +7,16 @@
   color: black;
 
   background-color: white;
+}
+
+.correctAnswer {
+  border: 2px solid #109e0d;
+
+  background-color: #c2ffb8;
+}
+
+.wrongAnswer {
+  border: 2px solid #db3a3a;
+
+  background-color: #ffb8b8;
 }
