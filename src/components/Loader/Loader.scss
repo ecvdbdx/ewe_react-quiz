@@ -1,0 +1,19 @@
+.loaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba($color: #000000, $alpha: 0.4);
+}
+
+.loaderBlock {
+  margin: auto;
+  padding: 32px;
+  border-radius: 8px;
+
+  background-color: black;
+}

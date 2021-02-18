@@ -5,11 +5,13 @@ import Home from "./pages/home";
 import Quiz from "./pages/quiz";
 import Recap from "./pages/recap";
 import Notification from "./components/Notification";
+import Loader from "./components/Loader";
 
 function App() {
   return (
     <div>
       <Notification />
+      <Loader />
       <Router>
         <div className="App">
           <Switch>
