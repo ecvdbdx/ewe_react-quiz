@@ -12,7 +12,7 @@ export default function Question({
 
   return (
     <div className="questionContainer">
-      <h1>{question}</h1>
+      <h2>{question}</h2>
       <AnswerList
         correct={correct_answer}
         incorrect={incorrect_answers}
