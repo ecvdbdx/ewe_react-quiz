@@ -1,6 +1,5 @@
-import React from "react";
-
 import "./Category.scss";
+import React from "react";
 
 export default function Category({name, id, selectCategory}) {
 

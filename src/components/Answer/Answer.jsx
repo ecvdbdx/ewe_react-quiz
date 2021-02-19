@@ -1,5 +1,5 @@
-import React from "react";
 import "./Answer.scss";
+import React from "react";
 
 export default function Answer({
   answer,

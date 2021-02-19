@@ -1,8 +1,6 @@
-import React from "react";
-
-import Select from "components/Select";
-
 import "./Header.scss";
+import React from "react";
+import Select from "components/Select";
 
 export default function Header({ getDifficulty }) {
   const difficulty = ["easy", "normal", "hard"];

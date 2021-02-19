@@ -1,6 +1,5 @@
-import React from "react";
-
 import "./Select.scss";
+import React from "react";
 
 export default function Select({ name, options, getDifficulty }) {
   const optionItems = options.map((value, key) => (

@@ -1,8 +1,6 @@
-import React from "react";
-
-import { connect } from "react-redux";
-
 import "./Header.scss";
+import React from "react";
+import { connect } from "react-redux";
 
 const HeaderRecapTemplate = ({ answersList }) => {
   let correctAnswerCounter = 0;

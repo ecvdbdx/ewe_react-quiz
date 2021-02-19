@@ -1,9 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import Loader from "react-loader-spinner";
 import "./Loader.scss";
-
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import React from "react";
+import Loader from "react-loader-spinner";
+import { connect } from "react-redux";
 
 const NotificationTemplate = ({ hasLoader }) => {
   if (hasLoader)

@@ -1,6 +1,6 @@
+import "./Question.scss";
 import React from "react";
 import AnswerList from "../AnswerList";
-import "./Question.scss";
 
 export default function Question({
   questionData: { question, correct_answer, incorrect_answers },

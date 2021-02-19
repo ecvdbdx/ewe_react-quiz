@@ -1,12 +1,9 @@
+import "./Categories.scss";
 import React from "react";
+import Category from "../Category";
+import { getData } from "./DATA";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-import "./Categories.scss";
-
-import Category from "../Category";
-
-import { getData } from "./DATA";
 
 const data = getData();
 
