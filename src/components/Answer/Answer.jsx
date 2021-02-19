@@ -8,12 +8,19 @@ export default function Answer({
   isCorrect,
   isWrong,
 }) {
+  // const [isChecked, setIsChecked] = useState(false);
+
+  // function putAnswer(answer) {
+  //   setIsChecked(!isChecked);
+  //   selectAnswer(answer);
+  // }
   return (
     <div
       className={[
         "answerContainer",
         isCorrect ? " correctAnswer" : "",
         isWrong ? " wrongAnswer" : "",
+        // isChecked ? "selectedAnswer" : "",
       ].join(" ")}
       onClick={() => selectAnswer(answer)}
     >
