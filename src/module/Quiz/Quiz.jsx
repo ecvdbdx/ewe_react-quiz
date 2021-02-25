@@ -25,9 +25,9 @@ const QuizTemplate = ({ questionsList, addNewAnswer }) => {
   return (
     <div className="quizRoot">
       <div className="inner">
-        <h1>
+        <p className="question">
           Question {questionIndex + 1} / {questionsList.length}
-        </h1>
+        </p>
         <Question
           questionData={currentQuestion}
           answerQuestion={answerQuestion}

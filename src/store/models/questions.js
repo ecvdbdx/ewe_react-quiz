@@ -69,6 +69,10 @@ const questions = {
             answers.splice(randomAnswerPosition, 0, correct);
             question.answers = answers;
 
+            question.question = question.question
+              .replace(/&quot;/g, '"')
+              .replace(/&#039;/g, "'");
+
             return question;
           });
           dispatch.questions.SET_QUESTIONS(res.results);
