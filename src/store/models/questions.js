@@ -6,35 +6,35 @@ const questions = {
   }, // initial state
   reducers: {
     // handle state changes with pure functions
-    addAnswer(state, payload) {
-      return {
-        ...state,
-        answersList: [...state.answersList, payload],
-      };
-    },
-    setQuestions(state, payload) {
-      console.log("reducer", payload);
-      return {
-        ...state,
-        questionsList: payload,
-      };
-    },
-    setOptions(state, payload) {
-      return {
-        ...state,
-        options: payload,
-      };
-    },
+    ADD_ANSWER: (state, payload) => ({
+      ...state,
+      answersList: [...state.answersList, payload],
+    }),
+
+    RESET_ANWSERS: (state) => ({
+      ...state,
+      answersList: [],
+    }),
+
+    SET_QUESTIONS: (state, payload) => ({
+      ...state,
+      questionsList: payload,
+    }),
+
+    SET_OPTIONS: (state, payload) => ({
+      ...state,
+      options: payload,
+    }),
   },
   effects: (dispatch) => ({
     // handle state changes with impure functions.
 
     updateOptions(options) {
-      dispatch.questions.setOptions(options);
+      dispatch.questions.SET_OPTIONS(options);
     },
 
     addNewAnswer(answer) {
-      dispatch.questions.addAnswer(answer);
+      dispatch.questions.ADD_ANSWER(answer);
     },
 
     setQuestionsAsync(
@@ -53,6 +53,8 @@ const questions = {
           if (res.results.length === 0)
             throw new Error("Empty results, please try another category.");
 
+          dispatch.questions.RESET_ANWSERS();
+
           res.results.map((question) => {
             const {
               correct_answer: correct,
@@ -69,7 +71,7 @@ const questions = {
 
             return question;
           });
-          dispatch.questions.setQuestions(res.results);
+          dispatch.questions.SET_QUESTIONS(res.results);
         });
     },
   }),
