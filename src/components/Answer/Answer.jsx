@@ -7,6 +7,7 @@ export default function Answer({
   selectAnswer,
   isCorrect,
   isWrong,
+  isChecked,
 }) {
   // const [isChecked, setIsChecked] = useState(false);
 
@@ -20,7 +21,7 @@ export default function Answer({
         "answerContainer",
         isCorrect ? " correctAnswer" : "",
         isWrong ? " wrongAnswer" : "",
-        // isChecked ? "selectedAnswer" : "",
+        isChecked ? "selectedAnswer" : "",
       ].join(" ")}
       onClick={() => selectAnswer(answer)}
     >
