@@ -10,6 +10,7 @@ const data = getData();
 const CategoriesTemplate = ({
   setQuestionsAsync,
   difficultySelected,
+  updateOptions,
   openNotification,
   openLoader,
   closeLoader,
@@ -22,8 +23,9 @@ const CategoriesTemplate = ({
       id,
       difficultySelected,
     };
+    updateOptions(payload);
 
-    setQuestionsAsync(payload)
+    setQuestionsAsync()
       .then(() => {
         history.push("/quiz");
       })
@@ -34,6 +36,7 @@ const CategoriesTemplate = ({
         closeLoader();
       });
   };
+
   const categoryItems = data.map((value) => (
     <Category
       key={value.id}
@@ -53,15 +56,17 @@ const CategoriesTemplate = ({
   );
 };
 
-const mapState = (state) => ({
-  questionsList: state.questions.questionsList,
+const mapState = ({ questions }) => ({
+  questionsList: questions.questionsList,
+  options: questions.options,
 });
 
-const mapDispatch = (dispatch) => ({
-  setQuestionsAsync: dispatch.questions.setQuestionsAsync,
-  openNotification: dispatch.notification.openNotification,
-  openLoader: dispatch.loader.openLoader,
-  closeLoader: dispatch.loader.closeLoader,
+const mapDispatch = ({ questions, notification, loader }) => ({
+  setQuestionsAsync: questions.setQuestionsAsync,
+  openNotification: notification.openNotification,
+  openLoader: loader.openLoader,
+  closeLoader: loader.closeLoader,
+  updateOptions: questions.updateOptions,
 });
 
 export default connect(mapState, mapDispatch)(CategoriesTemplate);

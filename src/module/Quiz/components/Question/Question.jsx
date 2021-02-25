@@ -3,7 +3,7 @@ import React from "react";
 import AnswerList from "../AnswerList";
 
 export default function Question({
-  questionData: { question, correct_answer, incorrect_answers },
+  questionData: { question, answers, correct_answer },
   answerQuestion,
 }) {
   const getAnswer = (answer) => {
@@ -12,12 +12,8 @@ export default function Question({
 
   return (
     <div className="questionContainer">
-      <h2>{question}</h2>
-      <AnswerList
-        correct={correct_answer}
-        incorrect={incorrect_answers}
-        getAnswer={getAnswer}
-      />
+      <h1>{question}</h1>
+      <AnswerList answers={answers} getAnswer={getAnswer} />
     </div>
   );
 }
