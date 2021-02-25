@@ -17,11 +17,12 @@ const CategoriesTemplate = ({
 }) => {
   const history = useHistory();
 
-  const startQuizz = (id) => {
+  const startQuizz = (id, name) => {
     openLoader();
     const payload = {
       id,
       difficultySelected,
+      name,
     };
     updateOptions(payload);
 

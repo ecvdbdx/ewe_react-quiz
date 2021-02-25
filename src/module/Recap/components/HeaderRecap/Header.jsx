@@ -1,8 +1,14 @@
 import "./Header.scss";
 import React from "react";
 import { connect } from "react-redux";
+import HeaderNav from "../HeaderNav";
 
-const HeaderRecapTemplate = ({ answersList }) => {
+const HeaderRecapTemplate = ({ answersList, setActiveSection }) => {
+  const menusArray = [
+    { text: "Correction", id: 0 },
+    { text: "New game", id: 1 },
+  ];
+
   let correctAnswerCounter = 0;
   let questionsCounter = 0;
 
@@ -21,6 +27,7 @@ const HeaderRecapTemplate = ({ answersList }) => {
           {correctAnswerCounter}/{questionsCounter}
         </h2>
       </div>
+      <HeaderNav menusArray={menusArray} onBtnClick={setActiveSection} />
     </div>
   );
 };
