@@ -2,7 +2,7 @@ import "./HeaderNav.scss";
 import React, { useState } from "react";
 
 const HeaderNavTemplate = ({ menusArray, onBtnClick }) => {
-  const [activeMenu, setActiveMenu] = useState(menusArray[0]);
+  const [activeMenu, setActiveMenu] = useState(0);
 
   const buttonClick = (id) => {
     setActiveMenu(id);
