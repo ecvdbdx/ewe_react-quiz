@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import "./Home.scss";
-
+import React, { useState } from "react";
 import { Header, Categories } from "./components";
 
 export default function HomeTemplate() {

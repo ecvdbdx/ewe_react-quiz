@@ -1,5 +1,5 @@
-import React from "react";
 import "./Answer.scss";
+import React from "react";
 
 export default function Answer({
   answer,
@@ -7,13 +7,21 @@ export default function Answer({
   selectAnswer,
   isCorrect,
   isWrong,
+  isChecked,
 }) {
+  // const [isChecked, setIsChecked] = useState(false);
+
+  // function putAnswer(answer) {
+  //   setIsChecked(!isChecked);
+  //   selectAnswer(answer);
+  // }
   return (
     <div
       className={[
         "answerContainer",
         isCorrect ? " correctAnswer" : "",
         isWrong ? " wrongAnswer" : "",
+        isChecked ? "selectedAnswer" : "",
       ].join(" ")}
       onClick={() => selectAnswer(answer)}
     >

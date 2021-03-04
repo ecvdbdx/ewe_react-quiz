@@ -1,9 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-
-import Answer from "components/Answer";
-
 import "./RecapQuestions.scss";
+import React from "react";
+import Answer from "components/Answer";
+import { connect } from "react-redux";
 
 const RecapQuestionsTemplate = ({ answersList }) => {
   function claqueAuSol() {

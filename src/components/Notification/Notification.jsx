@@ -1,7 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
-
 import PopupFrame from "components/PopupFrame";
+import { connect } from "react-redux";
 
 const NotificationTemplate = ({
   hasNotification,

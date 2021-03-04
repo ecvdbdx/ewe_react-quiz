@@ -1,32 +1,50 @@
 const questions = {
   state: {
+    options: {},
     questionsList: [],
     answersList: [],
   }, // initial state
   reducers: {
     // handle state changes with pure functions
-    addAnswer(state, payload) {
-      return {
-        ...state,
-        answersList: [...state.answersList, payload],
-      };
-    },
-    setQuestions(state, payload) {
-      console.log("reducer", payload);
-      return {
-        ...state,
-        questionsList: payload,
-      };
-    },
+    ADD_ANSWER: (state, payload) => ({
+      ...state,
+      answersList: [...state.answersList, payload],
+    }),
+
+    RESET_ANWSERS: (state) => ({
+      ...state,
+      answersList: [],
+    }),
+
+    SET_QUESTIONS: (state, payload) => ({
+      ...state,
+      questionsList: payload,
+    }),
+
+    SET_OPTIONS: (state, payload) => ({
+      ...state,
+      options: payload,
+    }),
   },
   effects: (dispatch) => ({
     // handle state changes with impure functions.
 
-    addNewAnswer(answer) {
-      dispatch.questions.addAnswer(answer);
+    updateOptions(options) {
+      dispatch.questions.SET_OPTIONS(options);
     },
 
-    setQuestionsAsync({ id, difficultySelected }) {
+    addNewAnswer(answer) {
+      dispatch.questions.ADD_ANSWER(answer);
+    },
+
+    setQuestionsAsync(
+      data,
+      {
+        questions: {
+          options: { id, difficultySelected },
+        },
+      }
+    ) {
       return fetch(
         `https://opentdb.com/api.php?amount=10&category=${id}&difficulty=${difficultySelected}`
       )
@@ -34,7 +52,30 @@ const questions = {
         .then((res) => {
           if (res.results.length === 0)
             throw new Error("Empty results, please try another category.");
-          dispatch.questions.setQuestions(res.results);
+
+          dispatch.questions.RESET_ANWSERS();
+
+          res.results.map((question) => {
+            const {
+              correct_answer: correct,
+              incorrect_answers: incorrect,
+            } = question;
+
+            const randomAnswerPosition = Math.floor(
+              Math.random() * Math.floor(incorrect.length + 1)
+            );
+
+            const answers = [...incorrect];
+            answers.splice(randomAnswerPosition, 0, correct);
+            question.answers = answers;
+
+            question.question = question.question
+              .replace(/&quot;/g, '"')
+              .replace(/&#039;/g, "'");
+
+            return question;
+          });
+          dispatch.questions.SET_QUESTIONS(res.results);
         });
     },
   }),

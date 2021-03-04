@@ -1,11 +1,11 @@
-import React from "react";
 import "./styles/App.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
 import Home from "./pages/home";
 import Quiz from "./pages/quiz";
 import Recap from "./pages/recap";
-import Notification from "./components/Notification";
 import Loader from "./components/Loader";
+import Notification from "./components/Notification";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (

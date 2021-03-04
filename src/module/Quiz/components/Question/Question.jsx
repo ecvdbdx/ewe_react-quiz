@@ -1,9 +1,9 @@
+import "./Question.scss";
 import React from "react";
 import AnswerList from "../AnswerList";
-import "./Question.scss";
 
 export default function Question({
-  questionData: { question, correct_answer, incorrect_answers },
+  questionData: { question, answers, correct_answer },
   answerQuestion,
 }) {
   const getAnswer = (answer) => {
@@ -13,11 +13,7 @@ export default function Question({
   return (
     <div className="questionContainer">
       <h1>{question}</h1>
-      <AnswerList
-        correct={correct_answer}
-        incorrect={incorrect_answers}
-        getAnswer={getAnswer}
-      />
+      <AnswerList answers={answers} getAnswer={getAnswer} />
     </div>
   );
 }

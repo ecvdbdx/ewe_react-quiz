@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Answer from "components/Answer";
+import Button from "components/Button";
 
-export default function AnswerList({ correct, incorrect, getAnswer }) {
-  const randomAnswerPosition = Math.floor(
-    Math.random() * Math.floor(incorrect.length + 1)
-  );
-
-  const answers = incorrect;
-  answers.splice(randomAnswerPosition, 0, correct);
+export default function AnswerList({ answers, getAnswer }) {
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
   const answersComponents = answers.map((answer, id) => (
     <Answer
       key={id}
       answer={answer}
+      isChecked={selectedAnswer === answer}
       label={`Answer ${id + 1}`}
-      selectAnswer={getAnswer}
+      selectAnswer={setSelectedAnswer}
     />
   ));
 
-  return answersComponents;
+  const submitAnswer = () => {
+    if (selectedAnswer) getAnswer(selectedAnswer);
+  };
+
+  return (
+    <div className="AnswersContainer">
+      <div className="AnswerList">{answersComponents}</div>
+      <Button click={submitAnswer}>Submit</Button>
+    </div>
+  );
 }

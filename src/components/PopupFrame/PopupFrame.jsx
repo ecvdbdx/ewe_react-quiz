@@ -1,6 +1,5 @@
-import React from "react";
-
 import "./PopupFrame.scss";
+import React from "react";
 
 export default function PopupFrame({ title, message, closePopup }) {
   return (

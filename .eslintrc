@@ -3,14 +3,16 @@
   "parser": "babel-eslint",
   "rules": {
     "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "react/prop-types": [0]
+    // "quotes": ["error", "double"],
+    "react/prop-types": [0],
+    "pretty-imports/sorted": "warn"
   },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
   ],
   "plugins":[
-    "react"
+    "react",
+    "pretty-imports"
   ]
 }
