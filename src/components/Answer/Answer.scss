@@ -7,6 +7,10 @@
   color: black;
 
   background-color: white;
+  box-shadow: 0px 0px 0px 0px #b3b3b3;
+
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
 }
 
 .correctAnswer {
@@ -24,7 +28,7 @@
 .selectedAnswer {
   position: relative;
 
-  border: outset #109e0d 3px;
+  box-shadow: 0px 0px 0px 3px #b3b3b3;
 
   &:before {
     position: absolute;

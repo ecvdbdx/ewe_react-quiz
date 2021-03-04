@@ -9,12 +9,6 @@ export default function Answer({
   isWrong,
   isChecked,
 }) {
-  // const [isChecked, setIsChecked] = useState(false);
-
-  // function putAnswer(answer) {
-  //   setIsChecked(!isChecked);
-  //   selectAnswer(answer);
-  // }
   return (
     <div
       className={[
