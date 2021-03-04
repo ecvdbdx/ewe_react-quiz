@@ -11,6 +11,11 @@ const QuizTemplate = ({ questionsList, addNewAnswer }) => {
 
   const currentQuestion = questionsList[questionIndex];
 
+  if (!currentQuestion) {
+    history.push("/");
+    return <div></div>;
+  }
+
   const answerQuestion = (correct, clientResponse, question) => {
     const isCorrect = correct === clientResponse;
     addNewAnswer({ question, correct, clientResponse, isCorrect });
